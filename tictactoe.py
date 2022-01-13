@@ -2,6 +2,7 @@
 
 from tkinter import *
 from tkinter import messagebox
+from pygame import mixer
 
 
 clickable = True
@@ -69,7 +70,7 @@ def click(btn):
         count += 1
         winner()
 
-    # Btn already taken
+    # Box already taken
     else:
         messagebox.showerror('Tic-Tac-Toe', 'Choose an empty box.')
 
