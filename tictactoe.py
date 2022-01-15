@@ -4,9 +4,7 @@ from tkinter import *
 from tkinter import messagebox
 from pygame import mixer
 
-
 clickable = True
-count = 0
 
 
 def create_window():
@@ -54,20 +52,18 @@ def create_window():
 
 def click(btn):
     '''Makes buttons clickable'''
-    global clickable, count
+    global clickable
     # btn.config(text='something') can be type as code bellow
     # Add X
     if btn['text'] == '' and clickable == True:
         btn['text'] = 'X'
         clickable = False
-        count += 1
         winner()
 
     # Add O
     elif btn['text'] == '' and clickable == False:
         btn['text'] = 'O'
         clickable = True
-        count += 1
         winner()
 
     # Box already taken
@@ -134,6 +130,15 @@ def winner():
     elif btn3['text'] == 'O' and btn5['text'] == 'O' and btn7['text'] == 'O':
         win = True
         messagebox.showinfo('Tic-Tac-Toe', 'O Player wins!')
+    while win == False:
+        sound()
+
+
+def sound():
+    '''Plays alarm sound'''
+    mixer.init()
+    mixer.music.load('drumming.wav')
+    mixer.music.play()
 
 
 def main():
