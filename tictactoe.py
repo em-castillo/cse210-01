@@ -53,22 +53,25 @@ def create_window():
 def click(btn):
     '''Makes buttons clickable'''
     global clickable
-    # btn.config(text='something') can be type as code bellow
-    # Add X
-    if btn['text'] == '' and clickable == True:
-        btn['text'] = 'X'
-        clickable = False
-        winner()
+    while btn['text'] == '':
+        # btn.config(text='something') can be type as code bellow
+        # Add X
+        if clickable == True:
+            btn['text'] = 'X'
+            clickable = False
+            winner()
+            Xsound()
 
-    # Add O
-    elif btn['text'] == '' and clickable == False:
-        btn['text'] = 'O'
-        clickable = True
-        winner()
+        # Add O
+        elif clickable == False:
+            btn['text'] = 'O'
+            clickable = True
+            winner()
+            Osound()
 
-    # Box already taken
-    else:
-        messagebox.showerror('Tic-Tac-Toe', 'Choose an empty box.')
+        # Box already taken
+        else:
+            messagebox.showerror('Tic-Tac-Toe', 'Choose an empty box.')
 
 
 def winner():
@@ -130,14 +133,19 @@ def winner():
     elif btn3['text'] == 'O' and btn5['text'] == 'O' and btn7['text'] == 'O':
         win = True
         messagebox.showinfo('Tic-Tac-Toe', 'O Player wins!')
-    while win == False:
-        sound()
 
 
-def sound():
-    '''Plays alarm sound'''
+def Xsound():
+    '''Plays click sound for player X'''
     mixer.init()
-    mixer.music.load('drumming.wav')
+    mixer.music.load('click.wav')
+    mixer.music.play()
+
+
+def Osound():
+    '''Plays click sound for player 0'''
+    mixer.init()
+    mixer.music.load('clack.wav')
     mixer.music.play()
 
 
