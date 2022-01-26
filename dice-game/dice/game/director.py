@@ -78,6 +78,6 @@ class Director:
             die = self.dice[i]
             values += f"{die.value} "
 
-        print(f"The card is: {self.cards_num}")
+        print(f"You rolled: {values}")
         print(f"Your score is: {self.total_score}\n")
         self.is_playing == (self.score > 0)
