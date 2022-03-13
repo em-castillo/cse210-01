@@ -1,4 +1,4 @@
-# Cycle Game
+# Snake
 
 Cycle is a game where the players try to cut each other off using cycles that leave a trail behind them.
 
@@ -40,6 +40,5 @@ root (project root folder)
 
 ## Authors
 ---
-* Aaron Eardley
-* Emily Castillo
+* Emily Castillo: cas20037@byui.edu
 ```
